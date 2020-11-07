@@ -1,8 +1,10 @@
 
 import './css/tailwind.output.css'
 import Course from './course';
+import CheckPrereqs from './checkPrereqs';
 
 function App() {
+
     const courses  = [
   {
     title: "CMPT 120",
@@ -109,6 +111,9 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
 ]
+
+var test = (CheckPrereqs(courses[1], courses));
+
   return (
     <div className="App"> 
       {courses.map((course) => (
