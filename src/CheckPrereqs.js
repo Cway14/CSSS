@@ -5,7 +5,7 @@ import course from './course';
 
 // courseToCheck is a course object
 // courses is the array of courses
-function checkPrereqs(courseToCheck, courses) {
+function CheckPrereqs(courseToCheck, courses) {
 
   /*
   1. Take courseToCheck as a course object
@@ -72,4 +72,4 @@ function checkPrereqs(courseToCheck, courses) {
 //   );
 // }
 
-export default checkPrereqs;
+export default CheckPrereqs;

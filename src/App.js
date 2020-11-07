@@ -1,7 +1,7 @@
 
 import './css/tailwind.output.css'
 import Course from './course';
-import CheckPrereqs from './checkPrereqs';
+import CheckPrereqs from './CheckPrereqs';
 
 function App() {
 
