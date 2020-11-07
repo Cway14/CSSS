@@ -128,7 +128,7 @@ var test = (CheckPrereqs(courses[1], courses));
     <div className="flex"> 
       <div className="sm:w-1/2">
         {courses.map((course) => {
-          return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted}></Course>
+          return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={course.title}></Course>
         })}
       </div>
       <div className="hidden sm:block w-1/2 overflow-hidden m-2 p-4 rounded-lg h-screen bg-gray-200 text-center">
