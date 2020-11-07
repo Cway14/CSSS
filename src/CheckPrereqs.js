@@ -1,7 +1,5 @@
 
 import './css/tailwind.output.css'
-import Course from './course';
-import course from './course';
 
 // courseToCheck is a course object
 // courses is the array of courses
@@ -25,8 +23,8 @@ function CheckPrereqs(courseToCheck, courses) {
 
   //3.
   var prereqCoursesToCheck=[];
-  for(i = 0; i < courseToCheckPrereqs.length; i++){
-    for(j = 0; j < courses.length;j++){
+  for(let i = 0; i < courseToCheckPrereqs.length; i++){
+    for(let j = 0; j < courses.length;j++){
       if(courseToCheckPrereqs[i] === courses[j].title){
         prereqCoursesToCheck.push(courses[j]);
       }
@@ -36,7 +34,7 @@ function CheckPrereqs(courseToCheck, courses) {
   //4.
   //If any of the course's prereqs are false, 
   //The course should not be enabled
-  for(i = 0; i < prereqCoursesToCheck.length; i++){
+  for(let i = 0; i < prereqCoursesToCheck.length; i++){
     if(prereqCoursesToCheck[i].completed === false){
         return false;
     }
