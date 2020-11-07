@@ -2,9 +2,11 @@
 import React, {useState} from 'react';
 import './css/tailwind.output.css'
 import Course from './course';
+import CheckPrereqs from './CheckPrereqs';
 
 function App() {
-  const courses = [
+
+  const courses  = [
   {
     title: "CMPT 120",
     description: "An elementary introduction to computing science and computer programming, suitable for students with little or no programming background. Students will learn fundamental concepts and terminology of computing science, acquire elementary skills for programming in a high-level language and be exposed to diverse fields within, and applications of computing science. Topics will include: pseudocode, data types and control structures, fundamental algorithms, computability and complexity, computer architecture, and history of computing science. Treatment is informal and programming is presented as a problem-solving tool. Prerequisite: BC Math 12 or equivalent is recommended",
@@ -119,6 +121,8 @@ function App() {
       }
     }
   }
+
+var test = (CheckPrereqs(courses[1], courses));
 
   return (
     <div className="flex"> 
