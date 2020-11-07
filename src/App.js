@@ -1,22 +1,32 @@
-import logo from './logo.svg';
+
 import './css/tailwind.output.css'
+import Course from './course';
+
 function App() {
+  const courses  = [
+  {
+    id: 120,
+    title: "Test Course",
+    description: "",
+    prerequisites: [],
+    rating: "easy",
+    completed: false,
+    enabled: true, //enabled if prereq's met
+  },
+  {
+    title: "Test Course",
+    description: "",
+    prerequisites: [120, 125],
+    rating: "easy",
+    completed: false,
+    enabled: true, //enabled if prereq's met
+  },
+]
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="text-blue-500">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+      {courses.map((course) => (
+        <Course title="my title"></Course>
+      ))}
     </div>
   );
 }
