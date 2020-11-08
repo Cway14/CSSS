@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import './css/tailwind.output.css'
 import Course from './course';
 import CheckBreadth from "./CheckBreadth";
-import CheckPrereqs from './CheckPrereqs';
+import checkPrereqs from './CheckPrereqs';
+import SideBar from './SideBar';
 
 function App() {
     const courses  = [
@@ -135,7 +136,7 @@ function App() {
       prerequisites: ["MATH 152"],
       rating: "easy",
       completed: false,
-      enabled: true, //enabled if prereq's met
+      enabled: false, //enabled if prereq's met
   },
   {
       title: "CMPT 310",
@@ -368,14 +369,35 @@ var testBreadth = CheckBreadth(courses);
 if(testBreadth === 15){
   console.log(testBreadth);
 }
+updateEnabled();
+  const [selectedCourse, setCourse] = useState(courses[0]);
+
+  function updateEnabled(){
+    for(let i = 0; i < courses.length; i++){
+      courses[i].enabled = checkPrereqs(courses[i], courses);
+    }
+    console.log(courses);
+  }
+
+  function updateCompleted(courseTitle, iscompleted){
+    for(let i = 0; i < courses.length; i++){
+      if(courseTitle === courses[i].title){
+        courses[i].completed = iscompleted;
+      }
+    }
+    updateEnabled();
+  }
 
   return (
-    <div className="App"> 
-      {courses.map((course) => (
-        <Course title="my title"></Course>
-      ))}
+    <div className="flex"> 
+      <div className="sm:w-1/2">
+        {courses.map((course) => {
+          return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={course.title}></Course>
+        })}
+      </div>
+      <SideBar {...selectedCourse}/>
     </div>
-  );
+    )
 }
 
 // return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={course.title}></Course>
