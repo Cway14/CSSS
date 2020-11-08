@@ -1,6 +1,9 @@
 
+import React, {useState} from 'react';
 import './css/tailwind.output.css'
 import Course from './course';
+import CheckBreadth from "./CheckBreadth";
+import CheckPrereqs from './CheckPrereqs';
 
 function App() {
     const courses  = [
@@ -360,6 +363,12 @@ function App() {
   },
 
 ]
+
+var testBreadth = CheckBreadth(courses);
+if(testBreadth === 15){
+  console.log(testBreadth);
+}
+
   return (
     <div className="App"> 
       {courses.map((course) => (
@@ -368,5 +377,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
