@@ -6,7 +6,7 @@ import checkPrereqs from './CheckPrereqs';
 import SideBar from './SideBar';
 
 function App() {
-    const courses  = [
+    const [courses, updateCourses]  = useState([
   {
     title: "CMPT 120",
     description: "An elementary introduction to computing science and computer programming, suitable for students with little or no programming background. Students will learn fundamental concepts and terminology of computing science, acquire elementary skills for programming in a high-level language and be exposed to diverse fields within, and applications of computing science. Topics will include: pseudocode, data types and control structures, fundamental algorithms, computability and complexity, computer architecture, and history of computing science. Treatment is informal and programming is presented as a problem-solving tool. Prerequisite: BC Math 12 or equivalent is recommended",
@@ -361,16 +361,37 @@ function App() {
       completed: false,
       enabled: true, //enabled if prereq's met
   },
+]);
 
-]
-updateEnabled();
   const [selectedCourse, setCourse] = useState(courses[0]);
+  updateEnabled();
 
   function updateEnabled(){
     for(let i = 0; i < courses.length; i++){
-      courses[i].enabled = checkPrereqs(courses[i], courses);
+      const newEnabled = checkPrereqs(courses[i], courses);
+      let changed = false;
+      if(newEnabled === courses[i].enabled){
+        changed = false;
+      }else{
+        changed = true;
+        courses[i].enabled = newEnabled;
+      }
+
+      if(changed){
+        const newCourses = [...courses];
+      newCourses.splice(i, 1, {
+          title: courses[i].title,
+          description: courses[i].description,
+          comments: courses[i].comments,
+          credits: courses[i].credits,
+          prerequisites: courses[i].prerequisites,
+          rating: courses[i].prerequisites,
+          completed: courses[i].completed,
+          enabled: courses[i].enabled, //enabled if prereq's met
+      })
+      updateCourses(newCourses)
     }
-    console.log(courses);
+    }
   }
 
   function updateCompleted(courseTitle, iscompleted){
@@ -385,9 +406,9 @@ updateEnabled();
   return (
     <div className="flex"> 
       <div className="sm:w-1/2">
-        {courses.map((course) => {
-          return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={course.title}></Course>
-        })}
+        {courses.map((course, index) => {
+              return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={index}></Course>
+            })}
       </div>
       <SideBar {...selectedCourse}/>
     </div>

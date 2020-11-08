@@ -13,6 +13,7 @@ function Course(info){
         }
     }
 
+
     return(
         <div className={`${info.enabled ? '' : 'opacity-50'} flex-col m-2 bg-gray-200 rounded-lg`}>
             <div className="flex flex-row items-center">
