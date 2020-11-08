@@ -62,7 +62,7 @@ function App() {
   return (
     <div>
       <div className="flex items-center h-16 w-full bg-red-700 justify-center fixed">
-        <h1 className="m-8 text-3xl font-bold text-white">CSSS</h1>
+        <h1 className="m-8 text-3xl font-bold text-white">Course Seeing Selecting Savant</h1>
       </div>
       <div className="flex"> 
         <div className="sm:w-1/2 mt-20">
