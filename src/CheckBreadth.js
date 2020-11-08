@@ -5,6 +5,7 @@ import './css/tailwind.output.css'
 // courses is the array of courses
 function CheckBreadth(course) {
 
+console.log("YOU MADE IT!");
 
 var nonBreadthCourses = ["CMPT 316", "MATH 308", "MATH 401",
 "MATH 343", "MACM 416", "CMPT 376W", "MACM 316",
@@ -15,27 +16,22 @@ var nonBreadthCourses = ["CMPT 316", "MATH 308", "MATH 401",
 var totalBreadthCredits = 0; 
 
 var checkedCourse; 
-
 for(let i = 0; i < course.length; i++){
     checkedCourse = course[i];
     for(let j = 0; j < nonBreadthCourses.length; j++){
 
-    //Split the name
-    //Check first digit of second helf 
-    //If upper div, take course 
-
-    //Split into two parts - Course Name and Number 
     var courseParts = checkedCourse.title.split(" ");
 
-    //Assign courseParts to the Course NUMBER
     courseParts = courseParts[1];
-    
-    //Assign the FIRST letter in Course Number to courseparts
     courseParts = courseParts[0];
+    courseParts = courseParts[1];
 
+    console.log("COURSE PARTS: " + courseParts);
     if(courseParts === "3" || courseParts === "4"){ 
-        if(!(checkedCourse.title === nonBreadthCourses[i])){
-            totalBreadthCredits+=course.credits;
+        if(!(checkedCourse.title === nonBreadthCourses[j])){
+            if(checkedCourse.complete){
+            totalBreadthCredits+=Number(checkedCourse.credits);
+            }
         }
     }
 }

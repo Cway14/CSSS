@@ -9,13 +9,13 @@ import SideBar from './SideBar';
 function App() {
     const courses  = [
   {
-    title: "CMPT 120",
+    title: "CMPT 320",
     description: "An elementary introduction to computing science and computer programming, suitable for students with little or no programming background. Students will learn fundamental concepts and terminology of computing science, acquire elementary skills for programming in a high-level language and be exposed to diverse fields within, and applications of computing science. Topics will include: pseudocode, data types and control structures, fundamental algorithms, computability and complexity, computer architecture, and history of computing science. Treatment is informal and programming is presented as a problem-solving tool. Prerequisite: BC Math 12 or equivalent is recommended",
     comments: "",
     credits: "3",
     prerequisites: [],
     rating: "easy",
-    completed: false,
+    completed: true,
     enabled: true, //enabled if prereq's met
   },
   {
@@ -224,7 +224,7 @@ function App() {
       credits: "3",
       prerequisites: [],
       rating: "easy",
-      completed: false,
+      completed: true,
       enabled: true, //enabled if prereq's met
   },
   {
@@ -365,10 +365,9 @@ function App() {
 
 ]
 
-var testBreadth = CheckBreadth(courses);
-if(testBreadth === 15){
-  console.log(testBreadth);
-}
+ var testBreadth = CheckBreadth(courses);
+ console.log("THE TOTAL IS: " + testBreadth);
+
 updateEnabled();
   const [selectedCourse, setCourse] = useState(courses[0]);
 
