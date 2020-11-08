@@ -207,7 +207,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "CMPT  418",
+      title: "CMPT 418",
       description: "Computationally-oriented theories of human cognitive architecture are explored, beginning with neurologically inspired (neural network) models of low-level brain processes, and progressing upwards to higher-level symbolic processing, of the kind that occurs in rule-following and problem solving. Arguments concerning the need for modular processing and combinatorially adequate forms of mental representation are examined at length.",
       comments: "",
       credits: "3",
@@ -302,7 +302,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "CMPT  320",
+      title: "CMPT 320",
       description: "An examination of social processes that are being automated and implications for good and evil, that may be entailed in the automation of procedures by which goods and services are allocated. Examination of what are dehumanizing and humanizing parts of systems and how systems can be designed to have a humanizing effect. Prerequisite: A CMPT course and 45 units. Breadth-Science",
       comments: "A CMPT course and 45 units. Breadth-Science is required.",
       credits: "3",
@@ -312,7 +312,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "B-HUM",
+      title: "B-HUM XXX",
       description: "GA 101, GSWS 201 etc",
       comments: "",
       credits: "3",
@@ -322,7 +322,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "B-HUM",
+      title: "B-HUM XXX",
       description: "GA 101, GSWS 201 etc",
       comments: "",
       credits: "3",
@@ -332,7 +332,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "B-SOC",
+      title: "B-SOC XXX",
       description: "Gergo 101, HIST 209 etc",
       comments: "",
       credits: "3",
@@ -342,7 +342,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "B-SOC",
+      title: "B-SOC XXX",
       description: "Gergo 101, HIST 209 etc",
       comments: "",
       credits: "3",
@@ -352,7 +352,7 @@ function App() {
       enabled: true, //enabled if prereq's met
   },
   {
-      title: "B-SCI",
+      title: "B-SCI XXX",
       description: "BISC 101, BISC 201 etc",
       comments: "",
       credits: "3",
@@ -377,4 +377,7 @@ if(testBreadth === 15){
     </div>
   );
 }
+
+// return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={course.title}></Course>
+
 export default App;
