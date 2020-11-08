@@ -2,6 +2,7 @@
 import React, {useState} from 'react';
 import './css/tailwind.output.css'
 import Course from './course';
+import CheckBreadth from "./CheckBreadth";
 import checkPrereqs from './CheckPrereqs';
 import SideBar from './SideBar';
 import coursesJSON from "./coursesJSON.json"
@@ -10,18 +11,21 @@ function App() {
     console.log(coursesJSON);
     const [courses, updateCourses]  = useState(coursesJSON.courses);
 
-  const [selectedCourse, setCourse] = useState(courses[0]);
-  updateEnabled();
+    var testBreadth = CheckBreadth(courses);
+    console.log("THE TOTAL IS: " + testBreadth);
 
-  function updateEnabled(){
-    for(let i = 0; i < courses.length; i++){
-      const newEnabled = checkPrereqs(courses[i], courses);
-      let changed = false;
-      if(newEnabled === courses[i].enabled){
-        changed = false;
-      }else{
-        changed = true;
-        courses[i].enabled = newEnabled;
+    updateEnabled();  
+    const [selectedCourse, setCourse] = useState(courses[0]);
+
+    function updateEnabled(){
+      for(let i = 0; i < courses.length; i++){
+        const newEnabled = checkPrereqs(courses[i], courses);
+        let changed = false;
+        if(newEnabled === courses[i].enabled){
+          changed = false;
+        } else {
+          changed = true;
+          courses[i].enabled = newEnabled;
       }
 
       if(changed){
@@ -61,6 +65,5 @@ function App() {
     </div>
     )
 }
-
 
 export default App;
