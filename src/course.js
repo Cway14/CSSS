@@ -15,7 +15,7 @@ function Course(info){
 
 
     return(
-        <div className={`${info.enabled ? '' : 'opacity-50'} flex-col m-2 bg-gray-200 rounded-lg`}>
+        <div className={`${info.enabled ? '' : 'opacity-50'} flex-col mx-4 my-2 bg-gray-200 rounded-lg`}>
             <div className="flex flex-row items-center">
                 <svg className={`${isChecked ? 'stroke-current text-green-700' : 'stroke-current text-red-700'} h-8 ml-4`} 
                     onClick={()=> handleClicked()}
@@ -25,6 +25,7 @@ function Course(info){
                 <div className="w-full p-4" onClick={() => info.focusedCourse(info)}>
                     {/*Course Title */}
                     <h1 className="m-2" onClick={() => info.focusedCourse(info)}>{info.title}</h1>
+                    <h1></h1>
                 </div>
             </div>
         </div>

@@ -305,7 +305,7 @@
         "enabled": true 
     },
     {
-        "title": "B-HUM",
+        "title": "B-HUM XXX",
         "description": "GA 101, GSWS 201 etc",
         "comments": "",
         "credits": "3",
@@ -315,7 +315,7 @@
         "enabled": true 
     },
     {
-        "title": "B-HUM",
+        "title": "B-HUM XXX",
         "description": "GA 101, GSWS 201 etc",
         "comments": "",
         "credits": "3",
@@ -325,7 +325,7 @@
         "enabled": true 
     },
     {
-        "title": "B-SOC",
+        "title": "B-SOC XXX",
         "description": "Gergo 101, HIST 209 etc",
         "comments": "",
         "credits": "3",
@@ -335,7 +335,7 @@
         "enabled": true 
     },
     {
-        "title": "B-SOC",
+        "title": "B-SOC XXX",
         "description": "Gergo 101, HIST 209 etc",
         "comments": "",
         "credits": "3",
@@ -345,7 +345,7 @@
         "enabled": true 
     },
     {
-        "title": "B-SCI",
+        "title": "B-SCI XXX",
         "description": "BISC 101, BISC 201 etc",
         "comments": "",
         "credits": "3",
