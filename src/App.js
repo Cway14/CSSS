@@ -2,11 +2,12 @@
 import React, {useState} from 'react';
 import './css/tailwind.output.css'
 import Course from './course';
-import CheckPrereqs from './CheckPrereqs';
+import checkPrereqs from './CheckPrereqs';
+import SideBar from './SideBar';
 
 function App() {
 
-  const courses  = [
+  let courses  = [
   {
     title: "CMPT 120",
     description: "An elementary introduction to computing science and computer programming, suitable for students with little or no programming background. Students will learn fundamental concepts and terminology of computing science, acquire elementary skills for programming in a high-level language and be exposed to diverse fields within, and applications of computing science. Topics will include: pseudocode, data types and control structures, fundamental algorithms, computability and complexity, computer architecture, and history of computing science. Treatment is informal and programming is presented as a problem-solving tool. Prerequisite: BC Math 12 or equivalent is recommended",
@@ -109,10 +110,18 @@ function App() {
       prerequisites: ["MATH 152"],
       rating: "easy",
       completed: false,
-      enabled: true, //enabled if prereq's met
+      enabled: false, //enabled if prereq's met
   },
 ];
+  updateEnabled();
   const [selectedCourse, setCourse] = useState(courses[0]);
+
+  function updateEnabled(){
+    for(let i = 0; i < courses.length; i++){
+      courses[i].enabled = checkPrereqs(courses[i], courses);
+    }
+    console.log(courses);
+  }
 
   function updateCompleted(courseTitle, iscompleted){
     for(let i = 0; i < courses.length; i++){
@@ -120,9 +129,8 @@ function App() {
         courses[i].completed = iscompleted;
       }
     }
+    updateEnabled();
   }
-
-var test = (CheckPrereqs(courses[1], courses));
 
   return (
     <div className="flex"> 
@@ -131,22 +139,10 @@ var test = (CheckPrereqs(courses[1], courses));
           return <Course {...course} focusedCourse={setCourse} toggleCompleted={updateCompleted} key={course.title}></Course>
         })}
       </div>
-      <div className="hidden sm:block w-1/2 overflow-hidden m-2 p-4 rounded-lg h-screen bg-gray-200 text-center">
-        <h1 className="text-2xl font-bold w-full border-b">{selectedCourse.title}</h1>
-        <p className="mt-4">{selectedCourse.description}</p>
-        <div className="m-4 text-left">
-          {/* if none, say none */}
-          <p className="m-2 text-md"><span className="font-bold">Pre-Requisites: </span>
-            {selectedCourse.prerequisites.map(preReq => (preReq +", "))}</p>
-          <p className="m-2 text-md"><span className="font-bold">Credits: </span>add credits</p>
-          {/* change colour of text based on difficulty */}
-          <p className="m-2 text-md"><span className="font-bold">Difficulty: </span>{selectedCourse.rating}</p>
-          {/* If completed, let them know they have completed course */}
-
-        </div>
-      </div>
+      <SideBar {...selectedCourse}/>
     </div>
   );
 }
+
 
 export default App;
